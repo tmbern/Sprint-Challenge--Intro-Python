@@ -93,9 +93,10 @@ lon1 = int(coordinate1[1].strip(','))
 lat2 = int(coordinate2[0].strip(','))
 lon2 = int(coordinate2[1].strip(','))
 
-within = []
+# within = []
 
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
+    within = []
   # within will hold the cities that fall within the specified region
     for i in cities:
         if (i.lat <= max(lat1, lat2) and i.lat >= min(lat1, lat2)) and (i.lon <= max(lon1, lon2) and i.lon >= min(lon1, lon2)):
@@ -105,7 +106,7 @@ def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
 
 # need logic to ensure that the input from the user is correct format. 
 if len(coordinate1) == 2 and len(coordinate2) == 2:
-    cityreader_stretch(lat1=lat1, lon1=lon1, lat2=lat2, lon2=lon2, cities=cities)
+    within = cityreader_stretch(lat1=lat1, lon1=lon1, lat2=lat2, lon2=lon2, cities=cities)
     for c in within:
       print(c)
 else:
